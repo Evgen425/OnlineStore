@@ -1,0 +1,36 @@
+﻿@page "/Products"
+@using OnlineStore.ApiClient
+@using OnlineStore.Models
+<h3>Список товаров</h3>
+
+@inject IShopClient ShopClient;
+
+@if (_products is null)
+{
+    <div>Загрузка...</div>
+    
+}
+else
+{
+    @foreach (var product in _products)
+    {
+        <div>
+            <ul>
+                <li>@product.Name</li>
+                <li>@product.TotalPrice</li>
+            </ul>
+        </div>
+    }
+}
+
+@code {
+    private IReadOnlyList<Product> _products= null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _products = await ShopClient.GetProducts();
+
+    }
+
+}

@@ -477,3 +477,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# custom files
+*.db
+OnlineStore.Domain

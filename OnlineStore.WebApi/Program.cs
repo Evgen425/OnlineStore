@@ -31,48 +31,6 @@ app.UseCors(policy =>
         .WithOrigins("http://localhost:5084","https://api.mysite.com");
 });
 
-//
-// app.MapGet("/products", async (
-//         [FromServices] IProductRepository repository, CancellationToken cancellationToken)
-//     =>
-// {
-//      var products= await repository.GetAll(cancellationToken);
-//      return products; 
-// });
-//
-// app.MapPost("/products/addProduct", async (
-//     [FromBody]Product product,
-//     [FromServices] IProductRepository repository, 
-//     HttpResponse response, 
-//     CancellationToken cancellationToken ) =>
-// {
-//     await repository.Add(product, cancellationToken);
-// });
-//
-// app.MapGet("/get_product", async ([FromQuery] Guid id,
-//     [FromServices] IProductRepository repository,
-//     CancellationToken cancellationToken) =>
-// {
-//    var product= await repository.GetById(id, cancellationToken);
-//    return product;
-// });
-//
-//
-// app.MapPost("/products/update/", async (
-//     [FromBody]Product newProduct,
-//     [FromServices] IProductRepository repository,
-//     CancellationToken cancellationToken) =>
-// {
-//     await repository.Update(newProduct, cancellationToken);
-// });
-//
-// app.MapDelete("/products/delete", async ([FromQuery]Guid id,
-//     [FromServices] IProductRepository repository,
-//     CancellationToken cancellationToken) =>
-// {
-//     await repository.Delete(id, cancellationToken);
-// });
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

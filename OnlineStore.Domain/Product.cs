@@ -5,7 +5,7 @@ public record Product:IEntity
     public Guid Id { get; init; }
     public string Name { get; set; }
     public decimal TotalPrice { get; set; }
-    public Product()
+    private Product()
     {
     }
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Data.Repositories;
 using OnlineStore.Domain;
-using OnlineStore.Models;
 
 namespace OnlineStore.WebApi.Controllers;
 [ApiController]
@@ -16,7 +15,7 @@ public class ProductController: ControllerBase
     }
 
     [HttpGet("get_all")]
-    public async Task<IEnumerable<Product>> GetProducts(CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<Product>> GetProducts(CancellationToken cancellationToken)
     {
        var product= await _productRepository.GetAll(cancellationToken);
        return product;

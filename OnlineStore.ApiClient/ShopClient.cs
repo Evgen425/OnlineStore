@@ -1,6 +1,7 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net;
+using System.Net.Http.Json;
 using OnlineStore.Domain;
-using OnlineStore.Models;
+using OnlineStore.Models.Requests;
 
 namespace OnlineStore.ApiClient;
 
@@ -60,5 +61,17 @@ public class ShopClient : IShopClient
     {
         var uri = $"{_host}/products/delete_p?id={id}";
         await _httpClient.DeleteAsync(uri);
+    }
+    public async Task Register(RegisterRequest request, CancellationToken cts = default)
+    {
+        if (request is null) throw new ArgumentNullException(nameof(request));
+        var uri = $"{_host}/accounts/register";
+        var response = await _httpClient.PostAsJsonAsync(uri, request, cts);
+        if (response.StatusCode == HttpStatusCode.BadRequest)
+        {
+            var json = await response.Content.ReadAsStringAsync(cts);
+            throw new Exception(json);
+        }
+        response.EnsureSuccessStatusCode();
     }
 }

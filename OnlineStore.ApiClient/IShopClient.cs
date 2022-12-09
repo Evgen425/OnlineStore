@@ -1,5 +1,5 @@
 ﻿using OnlineStore.Domain;
-using OnlineStore.Models;
+using OnlineStore.Models.Requests;
 
 namespace OnlineStore.ApiClient;
 
@@ -10,5 +10,6 @@ public interface IShopClient
     Task AddProduct(Product product);
     Task UpdateProduct(Product product, Guid id);
      Task DeleteProduct(Guid id);
+     Task Register(RegisterRequest registerRequest, CancellationToken cts = default);
 
 }

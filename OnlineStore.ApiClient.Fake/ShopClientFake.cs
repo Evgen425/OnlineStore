@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using OnlineStore.Domain;
+using OnlineStore.Models.Requests;
 
 
 namespace OnlineStore.ApiClient.Fake;
@@ -41,6 +42,11 @@ public class ShopClientFake : IShopClient
     }
 
     public Task DeleteProduct(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task Register(RegisterRequest registerRequest, CancellationToken cts = default)
     {
         throw new NotImplementedException();
     }

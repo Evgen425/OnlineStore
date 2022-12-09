@@ -4,20 +4,20 @@ namespace OnlineStore.Models.Requests;
 
 public class RegisterRequest
 {
-    [Required(ErrorMessage = "Name is required")] 
+    [Required] 
     public string Name { get; set; }
 
-    [Required(ErrorMessage = "Email is required")]
+    [Required]
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
 
-    [Required(ErrorMessage = "Password is required")]
+    [Required]
     [MinLength(6)]
-    [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
+    [DataType(DataType.Password)]
     public string Password { get; set; }
 
-    [Required]
-    [Compare("Password", ErrorMessage = "Пароли не соответствуют.")]
-   
-    public string ConfirmPassword { get; set; }
+    // [Required]
+    // [Compare("Password", ErrorMessage = "Пароли не соответствуют.")]
+    //
+    // public string ConfirmPassword { get; set; }
 }

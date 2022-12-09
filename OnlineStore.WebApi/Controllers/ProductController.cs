@@ -3,6 +3,7 @@ using OnlineStore.Data.Repositories;
 using OnlineStore.Models;
 
 namespace OnlineStore.WebApi.Controllers;
+[ApiController]
 [Route("products")]
 public class ProductController: ControllerBase
 {

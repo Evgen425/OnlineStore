@@ -23,12 +23,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseCors(policy =>
 {
     policy
         .AllowAnyMethod()
         .AllowAnyHeader()
-        .WithOrigins("http://localhost:5084","https://api.mysite.com");
+        .WithOrigins("http://localhost:5084", "https://api.mysite.com");
 });
 
 app.UseHttpsRedirection();

@@ -3,6 +3,7 @@ using OnlineStore.Data.Repositories;
 using OnlineStore.Models;
 
 namespace OnlineStore.WebApi.Controllers;
+[ApiController]
 [Route("accounts")]
 public class AccountController:ControllerBase
 {
@@ -38,9 +39,14 @@ public class AccountController:ControllerBase
         await _accountRepository.DeleteById(id, cancellationToken);
     }
     [HttpGet("FindByEmail")]
-    public Task<Account> GetByEmail(string email)
+    public ActionResult<Account> GetByEmail(string email)
     {
-        var account = _accountRepository.GetByEmail(email);
-        return account;
+        Task<Account> account = _accountRepository.GetByEmail(email);
+        if (email is null)
+        {
+            return NotFound(new { message = "Почтовый адресс не найден" });
+        }
+        return Ok(account);
+        
     }
 }

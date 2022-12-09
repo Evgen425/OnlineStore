@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\OnlineStore.ApiClient\OnlineStore.ApiClient.csproj" />
+      <ProjectReference Include="..\OnlineStore.BlazorClient\OnlineStore.BlazorClient.csproj" />
       <ProjectReference Include="..\OnlineStore.Data\OnlineStore.Data.csproj" />
       <ProjectReference Include="..\OnlineStore.HttpModels\OnlineStore.HttpModels.csproj" />
     </ItemGroup>

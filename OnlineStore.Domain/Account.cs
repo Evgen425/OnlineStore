@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OnlineStore.Models;
+namespace OnlineStore.Domain;
 
 public record Account : IEntity
 {
@@ -24,10 +24,7 @@ public record Account : IEntity
         Email = email ?? throw new ArgumentNullException(nameof(email));
         Password = password ?? throw new ArgumentNullException(nameof(password));
     }
-
-    public Account()
-    {
-        
-    }
+    //for EF
+    private Account(){}   
 }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineStore.Domain;
 using OnlineStore.Models;
 
 namespace OnlineStore.Data;

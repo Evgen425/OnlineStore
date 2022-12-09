@@ -4,9 +4,7 @@ namespace OnlineStore.Models.Requests;
 
 public class RegisterRequest
 {
-    
-    [Required] 
-    public string Name { get; set; } 
+    [Required] public string Name { get; set; }
 
     [Required]
     [DataType(DataType.EmailAddress)]
@@ -15,12 +13,11 @@ public class RegisterRequest
     [Required]
     [MinLength(6)]
     [DataType(DataType.Password)]
-    public string Password { get; set; } 
-    
+    public string Password { get; set; }
+
     [Required]
-    [Compare("Password",ErrorMessage = "Пароли не соответствуют.")]
+    [Compare("Password", ErrorMessage = "Пароли не соответствуют.")]
     [MinLength(6)]
     [DataType(DataType.Password)]
-    public string ConfirmPassword { get; set; } 
-   
+    public string ConfirmPassword { get; set; }
 }

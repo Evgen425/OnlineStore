@@ -1,3 +1,4 @@
+using OnlineStore.Domain;
 using OnlineStore.Models;
 
 namespace OnlineStore.ApiClient.Test;

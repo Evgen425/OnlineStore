@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using OnlineStore.Domain;
 using OnlineStore.Models;
 
 namespace OnlineStore.ApiClient;

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Data.Repositories;
+using OnlineStore.Domain;
 using OnlineStore.Models;
+using OnlineStore.Models.Requests;
 
 namespace OnlineStore.WebApi.Controllers;
 [ApiController]
@@ -28,11 +30,17 @@ public class AccountController:ControllerBase
         return account;
     }
 
-    [HttpPost("add")]
-    public async Task AddAccount(Account account, CancellationToken cancellationToken)
+    [HttpPost("registration")]
+    public async Task<ActionResult<Account>> RegisterAccount(RegisterRequest request, CancellationToken cancellationToken)
     {
-        await _accountRepository.Add(account, cancellationToken);
+        var account = new Account(Guid.NewGuid(), request.Name, request.Email, request.Password);
+        //проверка на наличие Email
+       await _accountRepository.Add(account, cancellationToken);
+
+       return account;
     }
+
+
     [HttpDelete("delete")]
     public async Task DeleteProduct(Guid id, CancellationToken cancellationToken)
     {
@@ -46,7 +54,8 @@ public class AccountController:ControllerBase
         {
             return NotFound(new { message = "Почтовый адресс не найден" });
         }
+
         return Ok(account);
-        
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Data.Repositories;
+using OnlineStore.Domain;
 using OnlineStore.Models;
 
 namespace OnlineStore.WebApi.Controllers;

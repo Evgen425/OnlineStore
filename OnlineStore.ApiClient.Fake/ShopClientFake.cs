@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
-using OnlineStore.Models;
+using OnlineStore.Domain;
+
 
 namespace OnlineStore.ApiClient.Fake;
 

@@ -35,6 +35,7 @@ public class EfRepository<TEntity> : IRepository<TEntity> where TEntity : class,
         if (entity == null) throw new ArgumentNullException(nameof(entity));
         await Entities.AddAsync(entity, cts);
         await DbContext.SaveChangesAsync(cts);
+       
     }
 
 //Update

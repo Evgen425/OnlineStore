@@ -28,7 +28,7 @@ public class ShopClient : IShopClient
 
     public async Task<Product> GetProduct(Guid id, CancellationToken cancellationToken = default)
     {
-        string uri = $"{_host}/products/get_product?id={id}";
+        string uri = $"{_host}/products/get_by_id?id={id}";
         Product? product = await _httpClient.GetFromJsonAsync<Product>(uri, cancellationToken: cancellationToken);
         return product!;
     }

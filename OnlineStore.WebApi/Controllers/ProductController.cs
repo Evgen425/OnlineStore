@@ -29,9 +29,11 @@ public class ProductController: ControllerBase
     }
     
     [HttpPost("add_Product")]
-    public async Task AddProduct(Product product, CancellationToken cancellationToken)
+    public async Task<ActionResult<Product>> AddProduct(Product product, CancellationToken cancellationToken)
     {
-        await _productRepository.Add(product, cancellationToken);
+        var newProduct=new Product(Guid.NewGuid(), product.Name, product.TotalPrice);
+            await _productRepository.Add(newProduct, cancellationToken);
+            return newProduct;
     }
     
     [HttpPut("update")]
